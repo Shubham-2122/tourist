@@ -4,6 +4,8 @@ import About from "./Website/Pages/About";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Service from "./Website/Pages/Service";
 import Packages from "./Website/Pages/Packages";
+import Dashboard from "./Admin/Apages/Dashboard";
+import PackMange from "./Admin/Apages/PackMange";
 
 function App() {
   return (
@@ -17,6 +19,12 @@ function App() {
         <Route path="/about" element={<><About /></>} /> 
         <Route path="/service" element={<><Service /></>} /> 
         <Route path="/package" element={<><Packages /></>} /> 
+
+
+
+        {/* hide route */}
+        <Route path="/dashboard" element={<><Dashboard /></>} />
+        <Route path="/packmange" element={<><PackMange /></>} />
       </Routes>
      </BrowserRouter>
     </div>

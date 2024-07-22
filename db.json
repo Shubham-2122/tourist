@@ -1,0 +1,48 @@
+{
+    "user":[
+        {
+            "id":1,
+            "name":"user1",
+            "email":"user@gmail.com",
+            "password":"1234"
+        }
+    ],
+    "admin":[
+        {
+            "id":1,
+            "name":"admin",
+            "email":"admin@gmail.com",
+            "password":"1234"
+        }
+    ],
+    "packages":[
+        {
+            "id":1,
+            "url":"http://localhost:3000/img/package-1.jpg",
+            "city":"india",
+            "days":"5",
+            "person":"2",
+            "price":146,
+            "desc":"lsajjhuksaf sa f safas fsa fasf a"
+        },
+        {
+            "id":2,
+            "url":"http://localhost:3000/img/package-2.jpg",
+            "city":"india",
+            "days":"6",
+            "person":"1",
+            "price":156,
+            "desc":"lsajjhuk sd fd sd fsdfsdfsdfsdf fsa fasf a"
+        },
+        {
+            "id":3,
+            "url":"http://localhost:3000/img/package-3.jpg",
+            "city":"india",
+            "days":"7",
+            "person":"4",
+            "price":456,
+            "desc":"fsdfsdfsdfsdf sdffsdfhksudgsagg"
+        }
+    ]
+
+}
