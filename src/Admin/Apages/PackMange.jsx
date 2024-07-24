@@ -20,7 +20,7 @@ function PackMange() {
     }
     return (
         <div>
-            <Aheader />
+            <Aheader desc="Manage Package data" />
             <div className="container">
                 <h1>Manage Package data</h1>
                 <MDBTable>

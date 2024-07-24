@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 
 function Aheader({desc}) {
   return (
@@ -42,7 +42,14 @@ function Aheader({desc}) {
                                 <NavLink to="/dashboard" className="nav-item nav-link ">Home</NavLink>
                                 <NavLink to="/about" className="nav-item nav-link">About</NavLink>
                                 <NavLink to="/service" className="nav-item nav-link">Services</NavLink>
-                                <NavLink to="/package" className="nav-item nav-link">Packages</NavLink>
+                                {/* <NavLink to="/packmange" className="nav-item nav-link">Packages</NavLink> */}
+                                <div className="nav-item dropdown">
+                                    <a href="#" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Packages</a>
+                                    <div className="dropdown-menu m-0">
+                                        <Link to="/packmange" className="dropdown-item">Manage packges</Link>
+                                        <Link to="/addpackage" className="dropdown-item">add Packges</Link>
+                                    </div>
+                                </div>
                                 <div className="nav-item dropdown">
                                     <a href="#" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
                                     <div className="dropdown-menu m-0">
