@@ -35,15 +35,6 @@
       "desc": "lsajjhuk sd fd sd fsdfsdfsdfsdf fsa fasf a"
     },
     {
-      "id": "3",
-      "url": "http://localhost:3000/img/package-3.jpg",
-      "city": "india",
-      "days": "7",
-      "person": "4",
-      "price": 456,
-      "desc": "fsdfsdfsdfsdf sdffsdfhksudgsagg"
-    },
-    {
       "id": "1721818844042",
       "url": "https://th.bing.com/th?id=OIP.XB05NKXSdNq-sC7tGrglwQHaE8&w=306&h=204&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2",
       "price": "100000",
@@ -53,13 +44,45 @@
       "desc": "sdgfsd sdfg sdafg"
     },
     {
-      "id": "1721819023822",
-      "url": "https://th.bing.com/th?id=OIP.YbSfNrF-GgygmzUAkCkhigHaFG&w=300&h=207&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2",
-      "price": "200",
+      "id": "1721989152631",
+      "url": "https://images.pexels.com/photos/2105416/pexels-photo-2105416.jpeg?auto=compress&cs=tinysrgb&w=600",
+      "price": "2000",
       "city": "Canda",
-      "days": "8",
-      "person": "8",
-      "desc": "tnsadf nsdf sd fsa dfasdfk  safj oasjf oasf"
+      "days": "6",
+      "person": "3",
+      "desc": "asd dsf  dgsdg sfd g dsg s  gd jl jlfj lsdfj asdf"
+    }
+  ],
+  "service": [
+    {
+      "id": "1",
+      "icon": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxhhPx3kevkpTpgGTdZAlTNCNxrW0xRrWNBg&s",
+      "title": "WorldWide Tours",
+      "desc": "Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam"
+    },
+    {
+      "id": "2",
+      "icon": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxhhPx3kevkpTpgGTdZAlTNCNxrW0xRrWNBg&s",
+      "title": "Hotel Reservation",
+      "desc": "Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam"
+    },
+    {
+      "id": "3",
+      "icon": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxhhPx3kevkpTpgGTdZAlTNCNxrW0xRrWNBg&s",
+      "title": "Travel Guides",
+      "desc": "Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam"
+    },
+    {
+      "id": "4",
+      "icon": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxhhPx3kevkpTpgGTdZAlTNCNxrW0xRrWNBg&s",
+      "title": "Hotel Reservation",
+      "desc": "Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam"
+    },
+    {
+      "id": "1721991261245",
+      "icon": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAkllXExOi8qdqF5Poh46uyTljRpfcc0HZW-0NI77_W247TGjzLaMD7iEQ2RjGxLDaP9U&usqp=CAU",
+      "title": "Hotel service",
+      "desc": "hotel service provide asda asdfaklshdasn"
     }
   ]
 }

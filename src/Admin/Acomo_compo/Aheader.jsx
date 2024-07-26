@@ -41,7 +41,13 @@ function Aheader({desc}) {
                             <div className="navbar-nav ms-auto py-0">
                                 <NavLink to="/dashboard" className="nav-item nav-link ">Home</NavLink>
                                 <NavLink to="/about" className="nav-item nav-link">About</NavLink>
-                                <NavLink to="/service" className="nav-item nav-link">Services</NavLink>
+                                <div className="nav-item dropdown">
+                                    <a href="#" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Service</a>
+                                    <div className="dropdown-menu m-0">
+                                        <Link to="/Servicemange" className="dropdown-item">Manage Service</Link>
+                                        <Link to="/addservice" className="dropdown-item">add Service</Link>
+                                    </div>
+                                </div>
                                 {/* <NavLink to="/packmange" className="nav-item nav-link">Packages</NavLink> */}
                                 <div className="nav-item dropdown">
                                     <a href="#" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Packages</a>

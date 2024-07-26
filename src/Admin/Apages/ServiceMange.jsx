@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from 'react';
-import { MDBTable, MDBTableHead, MDBTableBody } from 'mdb-react-ui-kit';
-import Aheader from '../Acomo_compo/Aheader';
+import React, { useEffect, useState } from 'react'
+import Aheader from '../Acomo_compo/Aheader'
 import Afooter from '../Acomo_compo/Afooter';
+import { MDBTable, MDBTableHead, MDBTableBody } from 'mdb-react-ui-kit';
 import axios from 'axios';
 
-function PackMange() {
+function ServiceMange() {
+
 
     const [data, setdata] = useState([])
 
@@ -13,35 +14,25 @@ function PackMange() {
         fetchdata()
     }, [])
 
-    // view
     const fetchdata = async () => {
-        const res = await axios.get("http://localhost:3000/packages")
+        const res = await axios.get("http://localhost:3000/service")
         console.log(res.data)
         setdata(res.data)
     }
 
-    // delete
-    const handledelete = async (id)=>{
-        const res = await axios.delete(`http://localhost:3000/packages/${id}`)
-        console.log(res.data)
-        fetchdata();
-    }
 
-
-
-    return (
-        <div>
-            <Aheader desc="Manage Package data" />
-            <div className="container">
-                <h1>Manage Package data</h1>
+  return (
+    <div>
+        <Aheader desc="Service manage data" />
+        <div className="container">
+                <h1>Manage Service data</h1>
                 <MDBTable>
                     <MDBTableHead>
                         <tr className='text-center'>
                             <th scope='col'>#id</th>
-                            <th scope='col'>City</th>
-                            <th scope='col'>Days</th>
-                            <th scope='col'>Person</th>
-                            <th scope='col'>Price</th>
+                            {/* <th scope='col'>Icon</th> */}
+                            <th scope='col'>Title</th>
+                            <th scope='col'>Desc</th>
                             <th scope='col'  colSpan={3} >Action</th>
                         </tr>
                     </MDBTableHead>
@@ -51,14 +42,13 @@ function PackMange() {
                                 return (
                                     <tr className='text-center' key={item.id}>
                                         <th scope='row'>{item.id}</th>
-                                        <td>{item.city}</td>
-                                        <td>{item.days}</td>
-                                        <td>{item.person}</td>
-                                        <td>{item.price}</td>
+                                        {/* <td>{item.icon}</td> */}
+                                        <td>{item.title}</td>
+                                        <td>{item.desc}</td>
                                         <td>
                                             <button className='btn btn-primary'>View</button>
                                             <button className='btn btn-success mx-2'>Edit</button>
-                                            <button className='btn btn-danger' onClick={()=>handledelete(item.id)}>Delete</button>
+                                            <button className='btn btn-danger'>Delete</button>
                                         </td>
                                     </tr>
                                 )
@@ -67,9 +57,9 @@ function PackMange() {
                     </MDBTableBody>
                 </MDBTable>
             </div>
-            <Afooter />
-        </div>
-    )
+        <Afooter />
+    </div>
+  )
 }
 
-export default PackMange
+export default ServiceMange

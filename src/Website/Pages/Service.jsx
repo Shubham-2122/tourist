@@ -1,8 +1,25 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Header from '../Coman_compo/Header'
 import Footer from '../Coman_compo/Footer'
+import axios from 'axios'
 
 function Service() {
+
+    const [data, setdata] = useState([])
+
+
+    useEffect(() => {
+        fetchdata()
+    }, [])
+
+    const fetchdata = async () => {
+        const res = await axios.get("http://localhost:3000/service")
+        console.log(res.data)
+        setdata(res.data)
+    }
+
+
+
     return (
         <div>
             <div>
@@ -15,78 +32,21 @@ function Service() {
                             <h1 className="mb-5">Our Services</h1>
                         </div>
                         <div className="row g-4">
-                            <div className="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
-                                <div className="service-item rounded pt-3">
-                                    <div className="p-4">
-                                        <i className="fa fa-3x fa-globe text-primary mb-4" />
-                                        <h5>WorldWide Tours</h5>
-                                        <p>Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
-                                <div className="service-item rounded pt-3">
-                                    <div className="p-4">
-                                        <i className="fa fa-3x fa-hotel text-primary mb-4" />
-                                        <h5>Hotel Reservation</h5>
-                                        <p>Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
-                                <div className="service-item rounded pt-3">
-                                    <div className="p-4">
-                                        <i className="fa fa-3x fa-user text-primary mb-4" />
-                                        <h5>Travel Guides</h5>
-                                        <p>Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
-                                <div className="service-item rounded pt-3">
-                                    <div className="p-4">
-                                        <i className="fa fa-3x fa-cog text-primary mb-4" />
-                                        <h5>Event Management</h5>
-                                        <p>Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
-                                <div className="service-item rounded pt-3">
-                                    <div className="p-4">
-                                        <i className="fa fa-3x fa-globe text-primary mb-4" />
-                                        <h5>WorldWide Tours</h5>
-                                        <p>Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
-                                <div className="service-item rounded pt-3">
-                                    <div className="p-4">
-                                        <i className="fa fa-3x fa-hotel text-primary mb-4" />
-                                        <h5>Hotel Reservation</h5>
-                                        <p>Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
-                                <div className="service-item rounded pt-3">
-                                    <div className="p-4">
-                                        <i className="fa fa-3x fa-user text-primary mb-4" />
-                                        <h5>Travel Guides</h5>
-                                        <p>Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
-                                <div className="service-item rounded pt-3">
-                                    <div className="p-4">
-                                        <i className="fa fa-3x fa-cog text-primary mb-4" />
-                                        <h5>Event Management</h5>
-                                        <p>Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
-                                    </div>
-                                </div>
-                            </div>
+                            {
+                                data.map((item) => {
+                                    return (
+                                        <div className="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
+                                            <div className="service-item rounded pt-3">
+                                                <div className="p-4">
+                                                    <img src={item.icon} width="100px" alt="" />
+                                                    <h5>{item.title}</h5>
+                                                    <p>{item.desc}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    )
+                                })
+                            }
                         </div>
                     </div>
                 </div>

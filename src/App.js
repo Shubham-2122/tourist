@@ -7,6 +7,8 @@ import Packages from "./Website/Pages/Packages";
 import Dashboard from "./Admin/Apages/Dashboard";
 import PackMange from "./Admin/Apages/PackMange";
 import Add_Packages from "./Admin/Apages/Add_Packages";
+import ServiceMange from "./Admin/Apages/ServiceMange";
+import Add_service from "./Admin/Apages/Add_service";
 
 function App() {
   return (
@@ -27,6 +29,8 @@ function App() {
         <Route path="/dashboard" element={<><Dashboard /></>} />
         <Route path="/packmange" element={<><PackMange /></>} />
         <Route path="/addpackage" element={<><Add_Packages /></>} />
+        <Route path="/Servicemange" element={<><ServiceMange /></>} />
+        <Route path="/addservice" element={<><Add_service /></>} />
       </Routes>
      </BrowserRouter>
     </div>
