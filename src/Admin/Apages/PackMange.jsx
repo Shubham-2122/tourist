@@ -20,11 +20,26 @@ function PackMange() {
         setdata(res.data)
     }
 
+    const [fromvalue, setfromvalue] = useState({
+        id: "",
+        url: "",
+        price: "",
+        city: "",
+        days: "",
+        person: "",
+        desc: ""
+    })
     // delete
-    const handledelete = async (id)=>{
+    const handledelete = async (id) => {
         const res = await axios.delete(`http://localhost:3000/packages/${id}`)
         console.log(res.data)
         fetchdata();
+    }
+
+    const handleview = async (id) => {
+        const res = await axios.get(`http://localhost:3000/packages/${id}`)
+        console.log(res.data)
+        setfromvalue(res.data)
     }
 
 
@@ -42,7 +57,7 @@ function PackMange() {
                             <th scope='col'>Days</th>
                             <th scope='col'>Person</th>
                             <th scope='col'>Price</th>
-                            <th scope='col'  colSpan={3} >Action</th>
+                            <th scope='col' colSpan={3} >Action</th>
                         </tr>
                     </MDBTableHead>
                     <MDBTableBody>
@@ -56,9 +71,9 @@ function PackMange() {
                                         <td>{item.person}</td>
                                         <td>{item.price}</td>
                                         <td>
-                                            <button className='btn btn-primary'>View</button>
+                                            <button className='btn btn-primary' onClick={() => handleview(item.id)} data-bs-toggle="modal" data-bs-target="#exampleModal">View</button>
                                             <button className='btn btn-success mx-2'>Edit</button>
-                                            <button className='btn btn-danger' onClick={()=>handledelete(item.id)}>Delete</button>
+                                            <button className='btn btn-danger' onClick={() => handledelete(item.id)}>Delete</button>
                                         </td>
                                     </tr>
                                 )
@@ -67,6 +82,41 @@ function PackMange() {
                     </MDBTableBody>
                 </MDBTable>
             </div>
+            <div className="modal fade" id="exampleModal" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div className="modal-dialog">
+                    <div className="modal-content">
+                        <div className="modal-header">
+                            <h1 className="modal-title fs-5" id="exampleModalLabel">Package details</h1>
+                            <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" />
+                        </div>
+                        <div className="modal-body">
+                            <table className='table'>
+                                <tr className='text-center'>
+                                    <th scope='col'>#id</th>
+                                    <th scope='col'>City</th>
+                                    <th scope='col'>Days</th>
+                                    <th scope='col'>Person</th>
+                                    <th scope='col'>Price</th>
+                                    <th scope='col' colSpan={3} >Action</th>
+                                </tr>
+                                <tr className='text-center'>
+                                    <td scope='col'>{fromvalue.id}</td>
+                                    <td scope='col'>{fromvalue.city}</td>
+                                    <td scope='col'>{fromvalue.days}</td>
+                                    <td scope='col'>{fromvalue.person}</td>
+                                    <td scope='col'>{fromvalue.price}</td>
+                                    <td className="btn btn-secondary" data-bs-dismiss="modal">close</td>
+                                </tr>
+                            </table>
+                        </div>
+                        {/* <div className="modal-footer">
+                            <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
+                        </div> */}
+                    </div>
+                </div>
+            </div>
+
             <Afooter />
         </div>
     )

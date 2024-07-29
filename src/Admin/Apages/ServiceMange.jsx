@@ -20,6 +20,19 @@ function ServiceMange() {
         setdata(res.data)
     }
 
+    const [fromvalue, setfromvalue] = useState({
+        id: "",
+        icon: "",
+        title: "",
+        desc: ""
+    })
+
+    const handleview = async (id) => {
+        const res = await axios.get(`http://localhost:3000/service/${id}`)
+        console.log(res.data)
+        setfromvalue(res.data)
+    }
+
 
   return (
     <div>
@@ -46,7 +59,7 @@ function ServiceMange() {
                                         <td>{item.title}</td>
                                         <td>{item.desc}</td>
                                         <td>
-                                            <button className='btn btn-primary'>View</button>
+                                            <button className='btn btn-primary'  data-bs-toggle="modal" data-bs-target="#exampleModal" onClick={()=>handleview(item.id)} >View</button>
                                             <button className='btn btn-success mx-2'>Edit</button>
                                             <button className='btn btn-danger'>Delete</button>
                                         </td>
@@ -56,6 +69,38 @@ function ServiceMange() {
                         }
                     </MDBTableBody>
                 </MDBTable>
+            </div>
+            <div className="modal fade" id="exampleModal" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div className="modal-dialog">
+                    <div className="modal-content">
+                        <div className="modal-header">
+                            <h1 className="modal-title fs-5" id="exampleModalLabel">Package details</h1>
+                            <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" />
+                        </div>
+                        <div className="modal-body">
+                            <table className='table'>
+                                <tr className='text-center'>
+                                    <th scope='col'>#id</th>
+                                    {/* <th scope='col'>icon</th> */}
+                                    <th scope='col'>Title</th>
+                                    <th scope='col'>desc</th>
+                                    <th scope='col' colSpan={3} >Action</th>
+                                </tr>
+                                <tr className='text-center'>
+                                    <td scope='col'>{fromvalue.id}</td>
+                                    {/* <td scope='col'>{fromvalue.icon}</td> */}
+                                    <td scope='col'>{fromvalue.title}</td>
+                                    <td scope='col'>{fromvalue.desc}</td>
+                                    <td className="btn btn-secondary" data-bs-dismiss="modal">close</td>
+                                </tr>
+                            </table>
+                        </div>
+                        {/* <div className="modal-footer">
+                            <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
+                        </div> */}
+                    </div>
+                </div>
             </div>
         <Afooter />
     </div>
