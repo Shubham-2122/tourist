@@ -9,6 +9,7 @@ import PackMange from "./Admin/Apages/PackMange";
 import Add_Packages from "./Admin/Apages/Add_Packages";
 import ServiceMange from "./Admin/Apages/ServiceMange";
 import Add_service from "./Admin/Apages/Add_service";
+import Pagenotfound from "./Website/Pages/Pagenotfound";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/about" element={<><About /></>} /> 
         <Route path="/service" element={<><Service /></>} /> 
         <Route path="/package" element={<><Packages /></>} /> 
+        <Route path="*" element={<><Pagenotfound /></>} />
 
 
 
