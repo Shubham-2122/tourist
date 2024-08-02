@@ -20,9 +20,9 @@
       "id": "1",
       "url": "http://localhost:3000/img/package-1.jpg",
       "city": "india",
-      "days": "5",
+      "days": "4",
       "person": "2",
-      "price": 146,
+      "price": "200",
       "desc": "lsajjhuksaf sa f safas fsa fasf a"
     },
     {
