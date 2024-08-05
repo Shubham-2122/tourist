@@ -10,6 +10,7 @@ import Add_Packages from "./Admin/Apages/Add_Packages";
 import ServiceMange from "./Admin/Apages/ServiceMange";
 import Add_service from "./Admin/Apages/Add_service";
 import Pagenotfound from "./Website/Pages/Pagenotfound";
+import Alogin from "./Admin/Apages/Alogin";
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
         <Route path="/addpackage" element={<><Add_Packages /></>} />
         <Route path="/Servicemange" element={<><ServiceMange /></>} />
         <Route path="/addservice" element={<><Add_service /></>} />
+        <Route path="/alogin" element={<><Alogin /></>} />
       </Routes>
      </BrowserRouter>
     </div>

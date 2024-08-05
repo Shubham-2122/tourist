@@ -1,10 +1,27 @@
-import React from 'react'
-import { Link, NavLink } from 'react-router-dom'
+import React, { useEffect } from 'react'
+import { Link, NavLink, useNavigate } from 'react-router-dom'
 
-function Aheader({desc}) {
-  return (
-    <div>
-       <div>
+function Aheader({ desc }) {
+
+    const redirect = useNavigate();
+
+    useEffect(()=>{
+        if(!localStorage.getItem("adminid")){
+            redirect("/alogin")
+        }
+    })
+
+
+    const logout = () => {
+        localStorage.removeItem("adminid")
+        localStorage.removeItem("adminname")
+        console.log("Logout successfully")
+        redirect("/alogin")
+    }
+
+    return (
+        <div>
+            <div>
                 {/* Topbar Start */}
                 <div className="container-fluid bg-dark px-5 d-none d-lg-block">
                     <div className="row gx-0">
@@ -68,7 +85,33 @@ function Aheader({desc}) {
                                 </div>
                                 <a href="contact.html" className="nav-item nav-link">Contact</a>
                             </div>
-                            <a href className="btn btn-primary rounded-pill py-2 px-4">Register</a>
+                            {/* {
+                                (() => {
+                                    if (localStorage.getItem("adminid")) {
+
+                                    }
+                                })()
+                            } */}
+                            {
+                                (
+                                    () => {
+                                        if (localStorage.getItem("adminid")) {
+                                            return (
+                                                <>
+                                                    <Link onClick={logout} className="nav-item nav-link">Alogout</Link>
+                                                </>
+                                            )
+                                        }
+                                        else {
+                                            return (
+                                                <>
+                                                    <Link to="/alogin" className="nav-item nav-link">Alogin</Link>
+                                                </>
+                                            )
+                                        }
+                                    }
+                                )()
+                            }
                         </div>
                     </nav>
                     <div className="container-fluid bg-primary py-5 mb-5 hero-header">
@@ -88,8 +131,8 @@ function Aheader({desc}) {
                 </div>
                 {/* Navbar & Hero End */}
             </div>
-    </div>
-  )
+        </div>
+    )
 }
 
 export default Aheader

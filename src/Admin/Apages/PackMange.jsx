@@ -166,7 +166,7 @@ function PackMange() {
                                                 </div>
                                                 <div className="col-md-12">
                                                     <div className="form-floating">
-                                                        <select name='person'value={editedpaackge.person} onChange={(e)=>seteditedpackage({...editedpaackge,person:e.target.value})} className="form-select bg-transparent" id="select1">
+                                                        <select name='person' value={editedpaackge.person} onChange={(e)=>seteditedpackage({...editedpaackge,person:e.target.value})} className="form-select bg-transparent" id="select1">
                                                             <option value="2">2</option>
                                                             <option value="4">4</option>
                                                             <option value="3">3</option>
