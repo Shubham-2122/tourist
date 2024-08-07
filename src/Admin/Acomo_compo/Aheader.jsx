@@ -85,13 +85,17 @@ function Aheader({ desc }) {
                                 </div>
                                 <a href="contact.html" className="nav-item nav-link">Contact</a>
                             </div>
-                            {/* {
-                                (() => {
-                                    if (localStorage.getItem("adminid")) {
-
+                            {(
+                                ()=>{
+                                    if(localStorage.getItem("adminid")){
+                                        return(
+                                            <>
+                                                 <Link className="nav-item nav-link">hello...{localStorage.getItem("adminname")}</Link>
+                                            </>
+                                        )
                                     }
-                                })()
-                            } */}
+                                }
+                            )()}
                             {
                                 (
                                     () => {

@@ -1,7 +1,25 @@
-import React from 'react'
-import { NavLink } from 'react-router-dom'
+import React, { useEffect } from 'react'
+import { Link, NavLink, useNavigate } from 'react-router-dom'
 
 function Header({desc}) {
+
+    const redirect = useNavigate();
+
+    useEffect(()=>{
+        if(!localStorage.getItem("userid")){
+            redirect("/ulogin")
+        }
+    })
+
+
+    const logout = () => {
+        localStorage.removeItem("userid")
+        localStorage.removeItem("username")
+        console.log("Logout successfully")
+        redirect("/ulogin")
+    }
+
+
     return (
         <div>
             <div>
@@ -55,7 +73,36 @@ function Header({desc}) {
                                 </div>
                                 <a href="contact.html" className="nav-item nav-link">Contact</a>
                             </div>
-                            <a href className="btn btn-primary rounded-pill py-2 px-4">Register</a>
+                            {(
+                                ()=>{
+                                    if(localStorage.getItem("userid")){
+                                        return(
+                                            <>
+                                                <Link  className="nav-item nav-link">hello...{localStorage.getItem("username")}</Link>
+                                            </>
+                                        )
+                                    }
+                                }
+                            )()}
+
+{(
+                                ()=>{
+                                    if(localStorage.getItem("userid")){
+                                        return(
+                                            <>
+                                                <Link onClick={logout} className="nav-item nav-link">Logout</Link>
+                                            </>
+                                        )
+                                    }
+                                    else{
+                                        return(
+                                            <>
+                                                <Link to="/ulogin" className="nav-item nav-link">login</Link>
+                                            </>
+                                        )
+                                    }
+                                }
+                            )()}
                         </div>
                     </nav>
                     <div className="container-fluid bg-primary py-5 mb-5 hero-header">

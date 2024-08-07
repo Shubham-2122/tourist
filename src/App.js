@@ -11,6 +11,8 @@ import ServiceMange from "./Admin/Apages/ServiceMange";
 import Add_service from "./Admin/Apages/Add_service";
 import Pagenotfound from "./Website/Pages/Pagenotfound";
 import Alogin from "./Admin/Apages/Alogin";
+import Ulogin from "./Website/Pages/Ulogin";
+import Uregister from "./Website/Pages/Uregister";
 
 function App() {
   return (
@@ -25,6 +27,8 @@ function App() {
         <Route path="/service" element={<><Service /></>} /> 
         <Route path="/package" element={<><Packages /></>} /> 
         <Route path="*" element={<><Pagenotfound /></>} />
+        <Route path="/ulogin" element={<><Ulogin /></>} />
+        <Route path="/uregister" element={<><Uregister /></>} />
 
 
 

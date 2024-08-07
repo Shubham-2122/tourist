@@ -71,7 +71,6 @@ function Alogin() {
             redirect("/dashboard")
 
 
-
         } catch (error) {
             console.log("Error Api not valid", error)
         }
