@@ -13,6 +13,10 @@ import Pagenotfound from "./Website/Pages/Pagenotfound";
 import Alogin from "./Admin/Apages/Alogin";
 import Ulogin from "./Website/Pages/Ulogin";
 import Uregister from "./Website/Pages/Uregister";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import Usermanage from "./Admin/Apages/Usermanage";
+import Profile from "./Website/Pages/Profile";
 
 function App() {
   return (
@@ -20,6 +24,7 @@ function App() {
      {/* <h1>hello turist</h1> */}
      {/* <Home /> */}
      {/* <About /> */}
+     <ToastContainer />
      <BrowserRouter>
       <Routes>
         <Route path="/" element={<><Home /></>} />
@@ -29,6 +34,7 @@ function App() {
         <Route path="*" element={<><Pagenotfound /></>} />
         <Route path="/ulogin" element={<><Ulogin /></>} />
         <Route path="/uregister" element={<><Uregister /></>} />
+        <Route path="/profile" element={<><Profile /></>} />
 
 
 
@@ -39,6 +45,7 @@ function App() {
         <Route path="/Servicemange" element={<><ServiceMange /></>} />
         <Route path="/addservice" element={<><Add_service /></>} />
         <Route path="/alogin" element={<><Alogin /></>} />
+        <Route path="/usermanage" element={<><Usermanage /></>} />
       </Routes>
      </BrowserRouter>
     </div>

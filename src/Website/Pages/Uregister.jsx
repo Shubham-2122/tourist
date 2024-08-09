@@ -59,6 +59,7 @@ function Uregister() {
   return (
     <div>
        <MDBContainer fluid className='d-flex align-items-center justify-content-center bg-image' style={{backgroundImage: 'url(https://mdbcdn.b-cdn.net/img/Photos/new-templates/search-box/img4.webp)'}}>
+        <h1>New Register user</h1>
       <div className='mask gradient-custom-3'></div>
       <MDBCard className='m-5' style={{maxWidth: '600px'}}>
        <form action="" onSubmit={handlesubmit}>

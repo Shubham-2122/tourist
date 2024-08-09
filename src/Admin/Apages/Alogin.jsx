@@ -10,6 +10,7 @@ import {
     from 'mdb-react-ui-kit';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 function Alogin() {
 
@@ -43,6 +44,7 @@ function Alogin() {
         // email and password null 
         if (!email.trim() || !password.trim()) {
             console.log("Email and password are required...!");
+            toast.error("Email and password are required...!")
             return false;
         }
 
@@ -55,12 +57,14 @@ function Alogin() {
             // Email match 
             if (res.data.length === 0) {
                 console.log("Email does not match")
+                toast.error("Email does not match")
                 return false;
             }
 
             const admin = res.data[0]
             if (admin.password !== password) {
                 console.log("Passowrd does not match...!")
+                toast.error("Passowrd does not match...!")
                 return false;
             }
 
@@ -68,6 +72,7 @@ function Alogin() {
             localStorage.setItem('adminid', admin.id)
             localStorage.setItem('adminname', admin.name)
             console.log("login successfully")
+            toast.success("login successfully")
             redirect("/dashboard")
 
 

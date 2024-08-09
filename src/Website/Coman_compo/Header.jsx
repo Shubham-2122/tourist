@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import { Link, NavLink, useNavigate } from 'react-router-dom'
+import { toast } from 'react-toastify';
 
 function Header({desc}) {
 
@@ -16,6 +17,7 @@ function Header({desc}) {
         localStorage.removeItem("userid")
         localStorage.removeItem("username")
         console.log("Logout successfully")
+        toast.success("Logout successfully")
         redirect("/ulogin")
     }
 
@@ -78,7 +80,7 @@ function Header({desc}) {
                                     if(localStorage.getItem("userid")){
                                         return(
                                             <>
-                                                <Link  className="nav-item nav-link">hello...{localStorage.getItem("username")}</Link>
+                                                <Link to="/profile" className="nav-item nav-link"  >hello...{localStorage.getItem("username")}</Link>
                                             </>
                                         )
                                     }

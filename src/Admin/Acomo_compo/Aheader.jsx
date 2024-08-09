@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import { Link, NavLink, useNavigate } from 'react-router-dom'
+import { toast } from 'react-toastify';
 
 function Aheader({ desc }) {
 
@@ -16,6 +17,7 @@ function Aheader({ desc }) {
         localStorage.removeItem("adminid")
         localStorage.removeItem("adminname")
         console.log("Logout successfully")
+        toast.success("Logout successfully")
         redirect("/alogin")
     }
 
@@ -58,6 +60,7 @@ function Aheader({ desc }) {
                             <div className="navbar-nav ms-auto py-0">
                                 <NavLink to="/dashboard" className="nav-item nav-link ">Home</NavLink>
                                 <NavLink to="/about" className="nav-item nav-link">About</NavLink>
+                                <NavLink to="/usermanage" className="nav-item nav-link">User</NavLink>
                                 <div className="nav-item dropdown">
                                     <a href="#" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Service</a>
                                     <div className="dropdown-menu m-0">

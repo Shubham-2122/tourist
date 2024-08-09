@@ -13,6 +13,7 @@ import {
   from 'mdb-react-ui-kit';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { toast } from 'react-toastify';
 
 
 function Ulogin() {
@@ -46,6 +47,7 @@ function Ulogin() {
         // email and password null 
         if (!email.trim() || !password.trim()) {
             console.log("Email and password are required...!");
+            toast.error("Email and password are required...!")
             return false;
         }
 
@@ -58,17 +60,20 @@ function Ulogin() {
             // Email match 
             if (res.data.length === 0) {
                 console.log("Email does not match")
+                toast.error("Email does not match")
                 return false;
             }
 
             const user = res.data[0]
             if (user.password !== password) {
                 console.log("Passowrd does not match...!")
+                toast.error("Passowrd does not match...!")
                 return false;
             }
 
             if(user.status !== "unblock"){
                 console.log("user is block..pls contact your admin")
+                toast.error("user is block..pls contact your admin")
                 return false
             }
 
@@ -76,6 +81,7 @@ function Ulogin() {
             localStorage.setItem('userid', user.id)
             localStorage.setItem('username', user.name)
             console.log("login successfully")
+            toast.success("login successfully")
             redirect("/")
 
 
